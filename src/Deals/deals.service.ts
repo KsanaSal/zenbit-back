@@ -1,0 +1,12 @@
+import { PrismaService } from 'src/prisma.service';
+import { Injectable } from '@nestjs/common';
+import { Deals } from './deals.model';
+
+@Injectable()
+export class DealsService {
+  constructor(private prisma: PrismaService) {}
+
+  async getAllDeals(): Promise<Deals[]> {
+    return this.prisma.deals.findMany();
+  }
+}
