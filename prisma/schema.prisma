@@ -24,14 +24,14 @@ model Users {
 }
 
 model Deals {
-  id       Int    @id @default(autoincrement())
-  image    String @db.VarChar(100)
-  title    String @unique @db.VarChar(45)
-  price    Int    @db.Integer()
-  yield    Int    @db.Integer()
-  sold     Int    @db.Integer()
-  tiket    Int    @db.Integer()
-  daysLeft Int    @db.Integer()
-  Users    Users  @relation(fields: [usersId], references: [id])
+  id       Int     @id @default(autoincrement())
+  image    String  @db.VarChar(100)
+  title    String  @unique @db.VarChar(45)
+  price    Int     @db.Integer()
+  yield    Decimal @db.Decimal(5, 2)
+  sold     Int     @db.Integer()
+  tiket    Int     @db.Integer()
+  daysLeft Int     @db.Integer()
+  Users    Users   @relation(fields: [usersId], references: [id])
   usersId  Int
 }

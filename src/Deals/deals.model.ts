@@ -4,7 +4,7 @@ export class Deals implements Prisma.DealsCreateManyInput {
   image: string;
   title: string;
   price: number;
-  yield: number;
+  yield: any;
   sold: number;
   tiket: number;
   daysLeft: number;
