@@ -22,7 +22,7 @@ export class UsersController {
     } catch (error) {
       return response.status(500).json({
         status: 500,
-        message: 'Internal Server Error!',
+        message: 'Internal Server Error44!',
         data: error,
       });
     }

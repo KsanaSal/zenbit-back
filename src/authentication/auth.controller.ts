@@ -24,7 +24,7 @@ export class AuthController {
     } catch (err) {
       return response.status(500).json({
         status: 'Error!',
-        message: 'Internal Server Error!',
+        message: 'Internal Server Error33!',
       });
     }
   }
@@ -44,9 +44,19 @@ export class AuthController {
       });
     } catch (err) {
       console.log(err);
+      console.log(err.status, 'status');
+      if (err.code === 'P2002' || err.status === 409) {
+        console.log('first');
+        return response.status(409).json({
+          status: 'Error!',
+          message: 'Username already exists!',
+        });
+      }
       return response.status(500).json({
         status: 'Error!',
-        message: 'Internal Server Error!',
+        statusText: 'Internal Server Error55!',
+        message: 'Internal Server Error55!',
+        err,
       });
     }
   }
