@@ -16,10 +16,10 @@ export class AuthService {
   ) {}
 
   async login(loginDto: LoginDto): Promise<any> {
-    const { username, password } = loginDto;
+    const { email, password } = loginDto;
 
     const users = await this.prismaService.users.findUnique({
-      where: { username },
+      where: { email },
     });
 
     if (!users) {
@@ -33,7 +33,7 @@ export class AuthService {
     }
 
     return {
-      token: this.jwtService.sign({ username }),
+      token: this.jwtService.sign({ username: users.username }),
     };
   }
 
